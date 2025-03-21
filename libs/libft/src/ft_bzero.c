@@ -6,11 +6,11 @@
 /*   By: alejaro2 <alejaro2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 16:51:19 by alejaro2          #+#    #+#             */
-/*   Updated: 2024/10/21 16:47:57 by alejaro2         ###   ########.fr       */
+/*   Updated: 2025/03/20 12:56:31 by alejaro2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../include/libft.h"
 
 void	ft_bzero(void *s, size_t n)
 {

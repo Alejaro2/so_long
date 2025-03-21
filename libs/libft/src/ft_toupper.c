@@ -6,11 +6,11 @@
 /*   By: alejaro2 <alejaro2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 19:43:10 by alejaro2          #+#    #+#             */
-/*   Updated: 2024/10/14 20:07:54 by alejaro2         ###   ########.fr       */
+/*   Updated: 2025/03/20 12:59:05 by alejaro2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../include/libft.h"
 
 int	ft_toupper(int c)
 {

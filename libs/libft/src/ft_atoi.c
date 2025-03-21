@@ -6,11 +6,11 @@
 /*   By: alejaro2 <alejaro2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 18:14:01 by alejaro2          #+#    #+#             */
-/*   Updated: 2025/03/10 16:18:43 by alejaro2         ###   ########.fr       */
+/*   Updated: 2025/03/20 12:56:26 by alejaro2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../include/libft.h"
 
 int	ft_atoi(const char *nptr)
 {

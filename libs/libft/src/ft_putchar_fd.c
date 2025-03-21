@@ -6,11 +6,11 @@
 /*   By: alejaro2 <alejaro2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 17:56:53 by alejaro2          #+#    #+#             */
-/*   Updated: 2024/10/18 18:54:36 by alejaro2         ###   ########.fr       */
+/*   Updated: 2025/03/20 12:57:26 by alejaro2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../include/libft.h"
 
 void	ft_putchar_fd(char c, int fd)
 {

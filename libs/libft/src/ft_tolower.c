@@ -6,11 +6,11 @@
 /*   By: alejaro2 <alejaro2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 20:26:28 by alejaro2          #+#    #+#             */
-/*   Updated: 2024/10/15 20:57:38 by alejaro2         ###   ########.fr       */
+/*   Updated: 2025/03/20 12:59:02 by alejaro2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../include/libft.h"
 
 int	ft_tolower(int c)
 {

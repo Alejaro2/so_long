@@ -6,11 +6,11 @@
 /*   By: alejaro2 <alejaro2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 18:53:23 by alejaro2          #+#    #+#             */
-/*   Updated: 2024/10/18 18:06:23 by alejaro2         ###   ########.fr       */
+/*   Updated: 2025/03/20 12:57:17 by alejaro2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../include/libft.h"
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {

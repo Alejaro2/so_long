@@ -6,11 +6,11 @@
 /*   By: alejaro2 <alejaro2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 21:34:49 by alejaro2          #+#    #+#             */
-/*   Updated: 2024/10/16 20:51:55 by alejaro2         ###   ########.fr       */
+/*   Updated: 2025/03/20 12:58:43 by alejaro2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../include/libft.h"
 #include <bsd/string.h>
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)

@@ -6,11 +6,11 @@
 /*   By: alejaro2 <alejaro2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 18:18:42 by alejaro2          #+#    #+#             */
-/*   Updated: 2025/03/19 12:11:43 by alejaro2         ###   ########.fr       */
+/*   Updated: 2025/03/21 11:03:53 by alejaro2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "get_next_line.h"
 
 char	*updated_accumulated(char *accumulated)
 {
@@ -19,9 +19,9 @@ char	*updated_accumulated(char *accumulated)
 	int		len;
 	int		i;
 
-	ptr = ft_strchr(accumulated, '\n');
+	ptr = ft_strchr_gnl(accumulated, '\n');
 	if (ptr != NULL)
-		len = ft_strlen(ptr + 1);
+		len = ft_strlen_gnl(ptr + 1);
 	else
 		return (NULL);
 	if (len == 0)
@@ -48,15 +48,15 @@ char	*extract_line(char *accumulated)
 
 	if (!accumulated)
 		return (NULL);
-	ptr = ft_strchr(accumulated, '\n');
+	ptr = ft_strchr_gnl(accumulated, '\n');
 	if (ptr != NULL)
 		len = (ptr - accumulated) + 1;
 	else
-		len = ft_strlen(accumulated);
+		len = ft_strlen_gnl(accumulated);
 	line = malloc((len + 1) * sizeof(char));
 	if (!line)
 		return ((free(line)), NULL);
-	ft_strlcpy(line, accumulated, len + 1);
+	ft_strlcpy_gnl(line, accumulated, len + 1);
 	line[len] = 0;
 	return (line);
 }
@@ -70,7 +70,7 @@ char	*read_until(int fd, char *accumulated)
 	if (!buffer)
 		return (free(accumulated), NULL);
 	bytes = 1;
-	while (ft_strchr(accumulated, '\n') == NULL && bytes != 0)
+	while (ft_strchr_gnl(accumulated, '\n') == NULL && bytes != 0)
 	{
 		bytes = read(fd, buffer, BUFFER_SIZE);
 		if (bytes == -1)
@@ -78,12 +78,13 @@ char	*read_until(int fd, char *accumulated)
 		if (bytes == 0)
 			return (free(buffer), accumulated);
 		buffer[bytes] = '\0';
-		accumulated = ft_strjoin(accumulated, buffer);
+		accumulated = ft_strjoin_gnl(accumulated, buffer);
 		if (!accumulated)
 			return (free(buffer), NULL);
 	}
 	return (free(buffer), accumulated);
 }
+
 
 char	*get_next_line(int fd)
 {
@@ -102,3 +103,4 @@ char	*get_next_line(int fd)
 	accumulated = temp;
 	return (line);
 }
+

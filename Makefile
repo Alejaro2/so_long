@@ -19,7 +19,7 @@ LIBFT_LIB = $(LIBFT_DIR)/libft.a
 LIBFT_FLAGS = -I$(LIBFT_DIR)
 
 
-SRC = src/main.c
+SRC = src/main.c src/map_parser.c
 OBJ = $(OBJ_DIR)/main.o
 
 all: $(NAME)

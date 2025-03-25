@@ -1,37 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   map_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alejaro2 <alejaro2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/19 11:55:22 by alejaro2          #+#    #+#             */
-/*   Updated: 2025/03/25 13:12:38 by alejaro2         ###   ########.fr       */
+/*   Created: 2025/03/25 10:35:23 by alejaro2          #+#    #+#             */
+/*   Updated: 2025/03/25 13:25:19 by alejaro2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	main(int argc, char **argv)
+void	free_map(t_game *game)
 {
-	t_game game;
-	int j;
+	int	i;
 
-	j = 0;
-	if (argc != 2)
+	i = 0;
+	while (i < game->map.height)
 	{
-		ft_printf("Usage: ./so_long <map2.ber>\n");
-		return(1);
+		free(game->map.map[i]);
+		i++;
 	}
-	game.map.height = 0;
-	game.map.map = NULL;
-	game.fd = open(argv[1], O_RDONLY);
-	if (game.fd == -1)
-		ft_error("Error\n");
-	map_parce(&game, argv[1]);
-	while (game.map.map[j])
-		printf("%s", game.map.map[j++]);
-	free_map(&game);
-	close(game.fd);
-	return(0);
+	free(game->map.map);
+}
+
+void check_counts(t_counts counts)
+{
+    if (counts.p != 1 || counts.e != 1 || counts.c < 1)
+        ft_error("Invalid P, E, or C count\n");
 }

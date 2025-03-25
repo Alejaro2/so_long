@@ -6,9 +6,9 @@ OBJ_DIR = obj
 LIBFT_DIR = libs/libft
 MLX_DIR = libs/MLX42
 
-SRCS = $(SRC_DIR)/main.c $(SRC_DIR)/map_parser.c
+SRCS = $(SRC_DIR)/main.c $(SRC_DIR)/map_parce.c $(SRC_DIR)/map_utils.c $(SRC_DIR)/map_validation.c
 
-OBJS = $(OBJ_DIR)/main.o $(OBJ_DIR)/map_parser.o
+OBJS = $(OBJ_DIR)/main.o $(OBJ_DIR)/map_parce.o $(OBJ_DIR)/map_utils.o $(OBJ_DIR)/map_validation.o
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -g
@@ -19,7 +19,7 @@ LIBS = $(LIBFT_DIR)/libft.a $(MLX_DIR)/build/libmlx42.a -lglfw -ldl -lpthread -l
 all: $(NAME)
 
 $(NAME): $(OBJS) $(LIBFT_DIR)/libft.a
-	$(CC) $(CFLAGS) $(OBJS) $(LIBS) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBS) -o $(NAME) 
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
@@ -35,8 +35,8 @@ clean:
 	make -C $(LIBFT_DIR) clean
 
 fclean: clean
-	rm -f $(NAME)
-	make -C $(LIBFT_DIR) fclean
+	rm -f $(NAME) 
+	make -C $(LIBFT_DIR) fclean 
 
 re: fclean all
 

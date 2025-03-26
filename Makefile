@@ -6,9 +6,9 @@ OBJ_DIR = obj
 LIBFT_DIR = libs/libft
 MLX_DIR = libs/MLX42
 
-SRCS = $(SRC_DIR)/main.c $(SRC_DIR)/map_parce.c $(SRC_DIR)/map_utils.c $(SRC_DIR)/map_validation.c
+SRCS = $(SRC_DIR)/main.c $(SRC_DIR)/map_parce.c $(SRC_DIR)/map_utils.c $(SRC_DIR)/map_validation.c $(SRC_DIR)/map_path.c $(SRC_DIR)/render.c
 
-OBJS = $(OBJ_DIR)/main.o $(OBJ_DIR)/map_parce.o $(OBJ_DIR)/map_utils.o $(OBJ_DIR)/map_validation.o
+OBJS = $(OBJ_DIR)/main.o $(OBJ_DIR)/map_parce.o $(OBJ_DIR)/map_utils.o $(OBJ_DIR)/map_validation.o $(OBJ_DIR)/map_path.o $(OBJ_DIR)/render.o
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -g

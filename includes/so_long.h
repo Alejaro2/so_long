@@ -6,7 +6,7 @@
 /*   By: alejaro2 <alejaro2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 16:36:04 by alejaro2          #+#    #+#             */
-/*   Updated: 2025/03/25 16:26:42 by alejaro2         ###   ########.fr       */
+/*   Updated: 2025/03/26 18:01:28 by alejaro2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,9 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include "../libs/MLX42/include/MLX42/MLX42.h"
+# include "../libs/MLX42/include/MLX42/MLX42_Int.h"
+
 
 typedef struct s_map
 {
@@ -33,7 +36,10 @@ typedef struct s_map
 typedef struct s_game
 {
 	t_map	map;
+	void *mlx;
+	void *win;
 	int		fd;
+	
 }			t_game;
 
 typedef struct s_counts
@@ -52,8 +58,11 @@ void		is_rectangular(t_game *game);
 void		check_walls(t_game *game);
 void		check_components(t_game *game);
 void		count_elements(t_game *game, t_counts *counts);
-void		check_counts(t_counts counts);
+int		check_counts(t_counts counts);
 void		map_parce(t_game *game, char *filename);
-static void	find_player(t_game *game, int *x, int *y)
+void		find_player(t_game *game, int *x, int *y);
+void		path_finder(t_game *game);
+void init_game(t_game *game);
+void 	free_map_copy(char **map, int height);
 
 #endif

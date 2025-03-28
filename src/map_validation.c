@@ -6,7 +6,7 @@
 /*   By: alejaro2 <alejaro2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 19:16:47 by alejaro2          #+#    #+#             */
-/*   Updated: 2025/03/26 12:38:02 by alejaro2         ###   ########.fr       */
+/*   Updated: 2025/03/28 11:52:26 by alejaro2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ void	check_components(t_game *game)
 	count_elements(game, &counts);
 	if(check_counts(counts) == 1)
 	{
-		free(game);
+		free_map(game);
 		ft_error("Invalid P, E, or C count\n");
 	}
 }

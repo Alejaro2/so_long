@@ -6,7 +6,7 @@
 /*   By: alejaro2 <alejaro2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 11:55:22 by alejaro2          #+#    #+#             */
-/*   Updated: 2025/03/26 18:02:59 by alejaro2         ###   ########.fr       */
+/*   Updated: 2025/03/28 11:51:57 by alejaro2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,12 @@ int	main(int argc, char **argv)
 	if (game.fd == -1)
 		ft_error("Error\n");
 	map_parce(&game, argv[1]);
-	while (game.map.map[j])
-		printf("%s", game.map.map[j++]);
-	printf("\n");
+	// while (game.map.map[j])
+	// 	printf("%s", game.map.map[j++]);
 	init_game(&game);
-	printf("width %d, height %d", game.map.width * 32, game.map.height * 32);
 	path_finder(&game);
+	render_map(&game);
+	mlx_loop(game.mlx);
 	free_map(&game);
 	close(game.fd);
 	return(0);

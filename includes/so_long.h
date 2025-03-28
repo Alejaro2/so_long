@@ -6,7 +6,7 @@
 /*   By: alejaro2 <alejaro2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 16:36:04 by alejaro2          #+#    #+#             */
-/*   Updated: 2025/03/26 18:01:28 by alejaro2         ###   ########.fr       */
+/*   Updated: 2025/03/28 12:11:14 by alejaro2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,29 +25,40 @@
 # include "../libs/MLX42/include/MLX42/MLX42.h"
 # include "../libs/MLX42/include/MLX42/MLX42_Int.h"
 
+#
 
 typedef struct s_map
 {
 	int		width;
 	int		height;
 	char	**map;
-}			t_map;
+}t_map;
 
 typedef struct s_game
 {
 	t_map	map;
-	void *mlx;
-	void *win;
+	mlx_t *mlx;
+	mlx_image_t *img_wall;
+	mlx_image_t *img_floor;
+	mlx_image_t *img_player;
+	mlx_image_t *img_collect;
+	mlx_image_t *img_exit;
+	int player_x;
+	int player_y;
+	int moves;
+	int collectibles;
+	int         exits_total;
+    int         exit_x;
+    int         exit_y;
 	int		fd;
-	
-}			t_game;
+}t_game;
 
 typedef struct s_counts
 {
 	int p; // Jugador
 	int e; // Salida
 	int c; // Coleccionables
-}			t_counts;
+}t_counts;
 
 void		ft_error(char *str);
 void		read_map(t_game *game);
@@ -64,5 +75,10 @@ void		find_player(t_game *game, int *x, int *y);
 void		path_finder(t_game *game);
 void init_game(t_game *game);
 void 	free_map_copy(char **map, int height);
+void render_map(t_game *game);
+void    move_player(mlx_key_data_t keydata, void *param);
+void find_exit(t_game *game);
+int count_exits(t_game *game);
+void cleanup_game(t_game *game);
 
 #endif

@@ -6,13 +6,16 @@
 /*   By: alejaro2 <alejaro2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 16:36:04 by alejaro2          #+#    #+#             */
-/*   Updated: 2025/04/02 11:26:53 by alejaro2         ###   ########.fr       */
+/*   Updated: 2025/04/02 17:41:09 by alejaro2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define MAX_MAP_AREA 2000
 # define SO_LONG_H
+# define SCREEN_WIDTH_LIMIT 3840
+# define SCREEN_HEIGHT_LIMIT 2160
+# define TILE_SIZE 64
 
 # include "../libs/MLX42/include/MLX42/MLX42.h"
 # include "../libs/MLX42/include/MLX42/MLX42_Int.h"
@@ -86,7 +89,11 @@ void			move_player(mlx_key_data_t keydata, void *param);
 void			find_exit(t_game *game);
 int				count_exits(t_game *game);
 void			cleanup_game(t_game *game);
-void	update_player_position(t_game *game, t_pos old_pos, t_pos new_pos);
-void 			check_victory(t_game *game);
+void			update_player_position(t_game *game, t_pos old_pos,
+					t_pos new_pos);
+void			check_victory(t_game *game);
+void			restrict_map_to_screen(t_game *game);
+void			load_images(t_game *game);
+void			check_png_files();
 
 #endif

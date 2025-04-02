@@ -18,7 +18,7 @@ LIBS = $(LIBFT_DIR)/libft.a $(MLX_DIR)/build/libmlx42.a -lglfw -ldl -lpthread -l
 
 all: $(NAME)
 
-$(NAME): $(OBJS) $(LIBFT_DIR)/libft.a
+$(NAME): $(OBJS) $(LIBFT_DIR)/libft.a $(MLX_DIR)/build/libmlx42.a
 	$(CC) $(CFLAGS) $(OBJS) $(LIBS) -o $(NAME) 
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
@@ -29,6 +29,10 @@ $(OBJ_DIR):
 
 $(LIBFT_DIR)/libft.a:
 	make -C $(LIBFT_DIR)
+
+$(MLX_DIR)/build/libmlx42.a:
+	cd $(MLX_DIR) && cmake -B build
+	cd $(MLX_DIR) && cmake --build build -j4
 
 clean:
 	rm -rf $(OBJ_DIR)

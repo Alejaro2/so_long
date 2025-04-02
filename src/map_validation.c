@@ -6,7 +6,7 @@
 /*   By: alejaro2 <alejaro2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 19:16:47 by alejaro2          #+#    #+#             */
-/*   Updated: 2025/04/02 11:01:26 by alejaro2         ###   ########.fr       */
+/*   Updated: 2025/04/02 16:30:21 by alejaro2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ void	check_file(char *filename)
 
 	len = ft_strlen(filename);
 	if (len < 4)
-		ft_error("Error\n Invalid file extension\n");
-	if (filename[len - 1] != 'r' || filename[len - 2] != 'e' || filename[len
-		- 3] != 'b' || filename[len - 4] != '.')
-		ft_error("Error\n");
+		ft_error("Error: Invalid file name.\n");
+	if (filename[len - 1] != 'r' || filename[len - 2] != 'e'
+		|| filename[len - 3] != 'b' || filename[len - 4] != '.')
+		ft_error("Error: Invalid file extension.\n");
 }
 
 void	is_rectangular(t_game *game)
@@ -42,7 +42,7 @@ void	is_rectangular(t_game *game)
 		if (curr_len != len)
 		{
 			free_map(game);
-			ft_error("Error\n");
+			ft_error("Error: Map is not rectangular.\n");
 		}
 		i++;
 	}
@@ -60,7 +60,7 @@ void	check_walls(t_game *game)
 			- 1][i] != '1')
 		{
 			free_map(game);
-			ft_error("Error\n top or bottom wall missing\n");
+			ft_error("Error: top or bottom wall missing\n");
 		}
 		i++;
 	}
@@ -71,7 +71,7 @@ void	check_walls(t_game *game)
 			- 1] != '1')
 		{
 			free_map(game);
-			ft_error("Error\n side wall missing");
+			ft_error("Error: side wall missing.\n");
 		}
 		i++;
 	}
@@ -85,13 +85,13 @@ void	check_components(t_game *game)
 	counts.c = 0;
 	counts.e = 0;
 	count_elements(game, &counts);
-	if(check_counts(counts) == 1)
+	if (check_counts(counts) == 1)
 	{
 		free_map(game);
-		ft_error("Invalid P, E, or C count\n");
+		ft_error("Error: Invalid P, E, or C count\n");
 	}
 	game->collectibles = counts.c;
-    game->exits_total = counts.e;
+	game->exits_total = counts.e;
 }
 
 void	count_elements(t_game *game, t_counts *counts)
@@ -114,7 +114,7 @@ void	count_elements(t_game *game, t_counts *counts)
 			else if (game->map.map[i][j] != '0' && game->map.map[i][j] != '1')
 			{
 				free_map(game);
-				ft_error("Error\n Invalid character\n");
+				ft_error("Error: Invalid character\n");
 			}
 			j++;
 		}

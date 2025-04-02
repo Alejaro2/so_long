@@ -6,13 +6,13 @@
 /*   By: alejaro2 <alejaro2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 17:11:58 by alejaro2          #+#    #+#             */
-/*   Updated: 2025/04/02 11:22:10 by alejaro2         ###   ########.fr       */
+/*   Updated: 2025/04/02 14:52:14 by alejaro2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static void	load_images(t_game *game)
+void	load_images(t_game *game)
 {
 	mlx_texture_t	*texture;
 
@@ -36,41 +36,41 @@ static void	load_images(t_game *game)
 		ft_error("Error\n Failed to load images\n");
 }
 
+void	put_image(t_game *game, char cell, int x, int y)
+{
+	if (cell == '1')
+		mlx_image_to_window(game->mlx, game->img_wall, x, y);
+	else if (cell == '0')
+		mlx_image_to_window(game->mlx, game->img_floor, x, y);
+	else if (cell == 'P')
+		mlx_image_to_window(game->mlx, game->img_player, x, y);
+	else if (cell == 'C')
+		mlx_image_to_window(game->mlx, game->img_collect, x, y);
+	else if (cell == 'E')
+		mlx_image_to_window(game->mlx, game->img_exit, x, y);
+}
+
 void	render_map(t_game *game)
 {
-	int	i;
-	int	j;
-	int first_render;
-	
+	int			i;
+	int			j;
+	static int	first_render;
+
 	first_render = 1;
+	if (!first_render)
+		return ;
 	i = 0;
-	
-	if(first_render)
+	while (i < game->map.height)
 	{
-		while (i < game->map.height)
+		j = 0;
+		while (j < game->map.width)
 		{
-			j = 0;
-			while (j < game->map.width)
-			{
-				if (game->map.map[i][j] == '1')
-					mlx_image_to_window(game->mlx, game->img_wall, j * 64, i * 64);
-				else if (game->map.map[i][j] == '0')
-					mlx_image_to_window(game->mlx, game->img_floor, j * 64, i * 64);
-				else if (game->map.map[i][j] == 'P')
-					mlx_image_to_window(game->mlx, game->img_player, j * 64, i
-						* 64);
-				else if (game->map.map[i][j] == 'C')
-					mlx_image_to_window(game->mlx, game->img_collect, j * 64, i
-						* 64);
-				else if (game->map.map[i][j] == 'E')
-					mlx_image_to_window(game->mlx, game->img_exit, j * 64, i * 64);
-				j++;
-			}
-			i++;
+			put_image(game, game->map.map[i][j], j * 64, i * 64);
+			j++;
 		}
-		first_render = 0;
+		i++;
 	}
-	
+	first_render = 0;
 }
 
 int	count_collectibles(t_game *game)
@@ -115,18 +115,4 @@ int	count_exits(t_game *game)
 		i++;
 	}
 	return (count);
-}
-
-void	init_game(t_game *game)
-{
-	game->mlx = mlx_init(game->map.width * 64, game->map.height * 64, "so long",
-			false);
-	if (!game->mlx)
-		ft_error("Error\n Failed to initialize MLX\n");
-	mlx_set_setting(MLX_STRETCH_IMAGE, true);
-	load_images(game);
-	find_player(game, &game->player_x, &game->player_y);
-	game->moves = 0;
-	find_exit(game);
-	mlx_key_hook(game->mlx, move_player, game);
 }

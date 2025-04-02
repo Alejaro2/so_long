@@ -6,14 +6,14 @@
 #    By: alejaro2 <alejaro2@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/10 09:37:54 by alejaro2          #+#    #+#              #
-#    Updated: 2025/03/21 11:03:28 by alejaro2         ###   ########.fr        #
+#    Updated: 2025/04/01 16:14:41 by alejaro2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 AR = ar -rcs
 CC = cc
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -g3
 
 SRC = \
 	src/ft_bzero.c src/ft_strchr.c src/ft_memcmp.c src/ft_memmove.c \

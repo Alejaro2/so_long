@@ -6,7 +6,7 @@
 /*   By: alejaro2 <alejaro2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 11:55:22 by alejaro2          #+#    #+#             */
-/*   Updated: 2025/03/28 11:51:57 by alejaro2         ###   ########.fr       */
+/*   Updated: 2025/04/02 11:01:50 by alejaro2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ int	main(int argc, char **argv)
 	map_parce(&game, argv[1]);
 	// while (game.map.map[j])
 	// 	printf("%s", game.map.map[j++]);
-	init_game(&game);
 	path_finder(&game);
+	init_game(&game);
 	render_map(&game);
 	mlx_loop(game.mlx);
 	free_map(&game);

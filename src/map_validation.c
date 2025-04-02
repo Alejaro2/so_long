@@ -6,7 +6,7 @@
 /*   By: alejaro2 <alejaro2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 19:16:47 by alejaro2          #+#    #+#             */
-/*   Updated: 2025/03/28 11:52:26 by alejaro2         ###   ########.fr       */
+/*   Updated: 2025/04/02 11:01:26 by alejaro2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,8 @@ void	check_components(t_game *game)
 		free_map(game);
 		ft_error("Invalid P, E, or C count\n");
 	}
+	game->collectibles = counts.c;
+    game->exits_total = counts.e;
 }
 
 void	count_elements(t_game *game, t_counts *counts)

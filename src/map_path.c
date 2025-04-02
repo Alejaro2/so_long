@@ -6,7 +6,7 @@
 /*   By: alejaro2 <alejaro2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 15:10:15 by alejaro2          #+#    #+#             */
-/*   Updated: 2025/03/28 11:45:29 by alejaro2         ###   ########.fr       */
+/*   Updated: 2025/04/02 10:55:38 by alejaro2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,3 +141,4 @@ void path_finder(t_game *game)
     game->exits_total = initial_e;
     free_map_copy(map_copy, game->map.height);
 }
+

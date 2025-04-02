@@ -6,7 +6,7 @@
 /*   By: alejaro2 <alejaro2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 17:11:58 by alejaro2          #+#    #+#             */
-/*   Updated: 2025/03/28 12:18:15 by alejaro2         ###   ########.fr       */
+/*   Updated: 2025/04/02 11:22:10 by alejaro2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,36 +36,44 @@ static void	load_images(t_game *game)
 		ft_error("Error\n Failed to load images\n");
 }
 
-void	render_map(t_game *game) 
+void	render_map(t_game *game)
 {
-	int i; 
-	int j;
-
+	int	i;
+	int	j;
+	int first_render;
+	
+	first_render = 1;
 	i = 0;
-	while (i < game->map.height) 
+	
+	if(first_render)
 	{
-		j = 0; 
-		while (j < game->map.width)
+		while (i < game->map.height)
 		{
-			if (game->map.map[i][j] == '1')
-				mlx_image_to_window(game->mlx, game->img_wall, j * 64, i * 64);
-			else if (game->map.map[i][j] == '0')
-				mlx_image_to_window(game->mlx, game->img_floor, j * 64, i * 64);
-			else if (game->map.map[i][j] == 'P')
-				mlx_image_to_window(game->mlx, game->img_player, j * 64, i
-					* 64);
-			else if (game->map.map[i][j] == 'C')
-				mlx_image_to_window(game->mlx, game->img_collect, j * 64, i
-					* 64);
-			else if (game->map.map[i][j] == 'E')
-				mlx_image_to_window(game->mlx, game->img_exit, j * 64, i * 64);
-			j++;
+			j = 0;
+			while (j < game->map.width)
+			{
+				if (game->map.map[i][j] == '1')
+					mlx_image_to_window(game->mlx, game->img_wall, j * 64, i * 64);
+				else if (game->map.map[i][j] == '0')
+					mlx_image_to_window(game->mlx, game->img_floor, j * 64, i * 64);
+				else if (game->map.map[i][j] == 'P')
+					mlx_image_to_window(game->mlx, game->img_player, j * 64, i
+						* 64);
+				else if (game->map.map[i][j] == 'C')
+					mlx_image_to_window(game->mlx, game->img_collect, j * 64, i
+						* 64);
+				else if (game->map.map[i][j] == 'E')
+					mlx_image_to_window(game->mlx, game->img_exit, j * 64, i * 64);
+				j++;
+			}
+			i++;
 		}
-		i++;
+		first_render = 0;
 	}
+	
 }
 
-static int	count_collectibles(t_game *game)
+int	count_collectibles(t_game *game)
 {
 	int	i;
 	int	j;
@@ -87,40 +95,38 @@ static int	count_collectibles(t_game *game)
 	return (count);
 }
 
-int count_exits(t_game *game)
+int	count_exits(t_game *game)
 {
-    int i;
-    int j;
-    int count;
+	int	i;
+	int	j;
+	int	count;
 
 	i = 0;
 	count = 0;
-
-    while (i < game->map.height)
-    {
-        j = 0;
-        while (j < game->map.width)
-        {
-            if (game->map.map[i][j] == 'E')
-                count++;
-            j++;
-        }
-        i++;
-    }
-    return (count);
+	while (i < game->map.height)
+	{
+		j = 0;
+		while (j < game->map.width)
+		{
+			if (game->map.map[i][j] == 'E')
+				count++;
+			j++;
+		}
+		i++;
+	}
+	return (count);
 }
 
 void	init_game(t_game *game)
-{	
-	game->mlx = mlx_init(game->map.width * 64, game->map.height * 64, "so long", false);
+{
+	game->mlx = mlx_init(game->map.width * 64, game->map.height * 64, "so long",
+			false);
 	if (!game->mlx)
 		ft_error("Error\n Failed to initialize MLX\n");
 	mlx_set_setting(MLX_STRETCH_IMAGE, true);
 	load_images(game);
 	find_player(game, &game->player_x, &game->player_y);
 	game->moves = 0;
-	game->collectibles = count_collectibles(game);
-	game->exits_total = count_exits(game);
 	find_exit(game);
 	mlx_key_hook(game->mlx, move_player, game);
 }

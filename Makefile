@@ -11,7 +11,7 @@ SRCS = $(SRC_DIR)/main.c $(SRC_DIR)/map_parce.c $(SRC_DIR)/map_utils.c $(SRC_DIR
 OBJS = $(OBJ_DIR)/main.o $(OBJ_DIR)/map_parce.o $(OBJ_DIR)/map_utils.o $(OBJ_DIR)/map_validation.o $(OBJ_DIR)/map_path.o $(OBJ_DIR)/render.o $(OBJ_DIR)/player.o
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror -g3
 INCLUDES = -Iincludes -I$(LIBFT_DIR) -I$(MLX_DIR)/include
 
 LIBS = $(LIBFT_DIR)/libft.a $(MLX_DIR)/build/libmlx42.a -lglfw -ldl -lpthread -lm

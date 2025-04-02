@@ -6,7 +6,7 @@
 /*   By: alejaro2 <alejaro2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 11:55:22 by alejaro2          #+#    #+#             */
-/*   Updated: 2025/04/02 17:41:25 by alejaro2         ###   ########.fr       */
+/*   Updated: 2025/04/02 19:27:12 by alejaro2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ void	init_game(t_game *game)
 			false);
 	if (!game->mlx)
 		ft_error("Error\n Failed to initialize MLX\n");
-	mlx_set_setting(MLX_STRETCH_IMAGE, true);
 	load_images(game);
 	find_player(game, &game->player_x, &game->player_y);
 	game->moves = 0;

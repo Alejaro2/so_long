@@ -6,7 +6,7 @@
 /*   By: alejaro2 <alejaro2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 02:11:04 by alejaro2          #+#    #+#             */
-/*   Updated: 2025/04/02 13:05:00 by alejaro2         ###   ########.fr       */
+/*   Updated: 2025/04/02 19:01:00 by alejaro2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,13 +59,13 @@ void	move_player(mlx_key_data_t keydata, void *param)
 		return ;
 	if (keydata.key == MLX_KEY_ESCAPE)
 		cleanup_game(game);
-	else if (keydata.key == MLX_KEY_UP && keydata.action == MLX_PRESS)
+	else if (keydata.key == MLX_KEY_W && keydata.action == MLX_PRESS)
 		new_y--;
-	else if (keydata.key == MLX_KEY_DOWN && keydata.action == MLX_PRESS)
+	else if (keydata.key == MLX_KEY_S && keydata.action == MLX_PRESS)
 		new_y++;
-	else if (keydata.key == MLX_KEY_LEFT && keydata.action == MLX_PRESS)
+	else if (keydata.key == MLX_KEY_A && keydata.action == MLX_PRESS)
 		new_x--;
-	else if (keydata.key == MLX_KEY_RIGHT && keydata.action == MLX_PRESS)
+	else if (keydata.key == MLX_KEY_D && keydata.action == MLX_PRESS)
 		new_x++;
 	else
 		return ;

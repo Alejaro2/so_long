@@ -6,7 +6,7 @@
 /*   By: alejaro2 <alejaro2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 11:42:40 by alejaro2          #+#    #+#             */
-/*   Updated: 2025/04/02 17:42:46 by alejaro2         ###   ########.fr       */
+/*   Updated: 2025/04/02 18:27:20 by alejaro2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,8 +90,6 @@ void	restrict_map_to_screen(t_game *game)
 
 	map_width_pixels = game->map.width * TILE_SIZE;
 	map_height_pixels = game->map.height * TILE_SIZE;
-	ft_printf("Map size: %dx%d pixels (Width: %d, Height: %d tiles)\n",
-		map_width_pixels, map_height_pixels, game->map.width, game->map.height);
 	if (map_width_pixels > SCREEN_WIDTH_LIMIT
 		|| map_height_pixels > SCREEN_HEIGHT_LIMIT)
 	{

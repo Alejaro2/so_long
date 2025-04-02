@@ -6,7 +6,7 @@
 /*   By: alejaro2 <alejaro2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 15:10:15 by alejaro2          #+#    #+#             */
-/*   Updated: 2025/04/02 16:31:35 by alejaro2         ###   ########.fr       */
+/*   Updated: 2025/04/02 18:27:39 by alejaro2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,12 +87,9 @@ void	path_finder(t_game *game)
 
 	initial_c = game->collectibles;
 	initial_e = game->exits_total;
-	ft_printf("Initial C: %d, E: %d\n", initial_c, initial_e);
 	find_player(game, &x, &y);
 	map_copy = copy_map(game);
 	flood_fill(game, map_copy, x, y);
-	ft_printf("After flood_fill C: %d, E: %d\n", game->collectibles,
-		game->exits_total);
 	if (game->collectibles != 0 || game->exits_total != 0)
 	{
 		free_map(game);
